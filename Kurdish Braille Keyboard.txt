@@ -1,0 +1,319 @@
+// Kurdish Braille Keyboard
+// Start Date: 22 - 6 - 2023
+// In the Name Of GOD
+
+//AUDIO
+#include <SD.h>
+#include <TMRpcm.h>
+
+const int chipSelect = 10;
+TMRpcm tmrpcm;
+
+// Declare Push Buttons and set Pin for them
+int PushButton_1 = 2;
+int PushButton_2 = 3;
+int PushButton_3 = 4;
+int PushButton_4 = 5;
+int PushButton_5 = 6;
+int PushButton_6 = 7;
+
+// SETUP Method
+void setup() {
+
+  // Initialize the SD card.
+  if (!SD.begin(chipSelect)) {
+    while (1);
+  }
+
+  // Initialize the TMRpcm library.
+  tmrpcm.setVolume(5);
+
+  Serial.begin(9600);
+  pinMode(PushButton_1, INPUT_PULLUP);
+  pinMode(PushButton_2, INPUT_PULLUP);
+  pinMode(PushButton_3, INPUT_PULLUP);
+  pinMode(PushButton_4, INPUT_PULLUP);
+  pinMode(PushButton_5, INPUT_PULLUP);
+  pinMode(PushButton_6, INPUT_PULLUP);
+  //end of SETUP Method
+}
+
+//LOOP Method
+void loop() {
+  int StatusPB_1 = digitalRead(PushButton_1);
+  int StatusPB_2 = digitalRead(PushButton_2);
+  int StatusPB_3 = digitalRead(PushButton_3);
+  int StatusPB_4 = digitalRead(PushButton_4);
+  int StatusPB_5 = digitalRead(PushButton_5);
+  int StatusPB_6 = digitalRead(PushButton_6);
+
+// Path
+String audioPath = "D:\\audios\\ku";
+
+  // 1 - A1
+  if (StatusPB_3 == HIGH && StatusPB_4 == HIGH && StatusPB_5 == HIGH) {
+   Serial.println("a1");
+  // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A1.mp3");
+   delay(500);
+  }
+
+  // 2 - A2
+  if (StatusPB_1 == HIGH) {
+   Serial.println("a2");
+  // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A2.mp3");
+   delay(500);
+  }
+
+ // 3 - A3
+  if (StatusPB_1 == HIGH && StatusPB_2 == HIGH) {
+   Serial.println("a3");
+  // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A3.mp3");
+   delay(500);
+  }
+
+  // 4 - A4
+  if (StatusPB_1 == HIGH && StatusPB_2 == HIGH && StatusPB_3 == HIGH && StatusPB_4 == HIGH) {
+   Serial.println("a4");
+  // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A4.mp3");
+   delay(500);
+  }
+
+  // 5 - A5
+  if (StatusPB_2 == HIGH && StatusPB_3 == HIGH && StatusPB_4 == HIGH && StatusPB_5 == HIGH) {
+   Serial.println("a5");
+  // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A5.mp3");
+   delay(500);
+  }
+
+  // 6 - A6
+  if (StatusPB_5 == HIGH && StatusPB_4 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a6");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A6.mp3");
+   delay(500);
+  }
+
+ // 7 - A7
+  if (StatusPB_2 == HIGH && StatusPB_4 == HIGH && StatusPB_5 == HIGH) {
+   Serial.println("a7");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A7.mp3");
+   delay(500);
+  }
+
+// 8 - A8
+  if (StatusPB_1 == HIGH && StatusPB_4 == HIGH) {
+   Serial.println("a8");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A8.mp3");
+   delay(500);
+  }
+// 9 - A9
+  if (StatusPB_1 == HIGH && StatusPB_5 == HIGH && StatusPB_6 == HIGH) {
+   Serial.println("a9");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A9.mp3");
+   delay(500);
+  }
+
+// 10 - A10
+  if (StatusPB_1 == HIGH && StatusPB_3 == HIGH && StatusPB_4 == HIGH && StatusPB_6 == HIGH) {
+   Serial.println("a10");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A10.mp3");
+   delay(500);
+  }
+
+// 11 - A11
+  if (StatusPB_6 == HIGH && StatusPB_4 == HIGH && StatusPB_2 == HIGH) {
+   Serial.println("a11");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A11.mp3");
+   delay(500);
+  }
+
+// 12 - A12
+  if (StatusPB_5 == HIGH && StatusPB_3 == HIGH && StatusPB_2 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a12");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A12.mp3");
+   delay(500);
+  }
+
+// 13 - A13
+  if (StatusPB_5 == HIGH && StatusPB_4 == HIGH && StatusPB_3 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a13");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A13.mp3");
+   delay(500);
+  }
+
+// 14 - A14
+  if (StatusPB_6 == HIGH && StatusPB_4 == HIGH && StatusPB_3 == HIGH) {
+   Serial.println("a14");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A14.mp3");
+   delay(500);
+  }
+
+// 15 - A15
+  if (StatusPB_4 == HIGH && StatusPB_3 == HIGH && StatusPB_2 == HIGH) {
+   Serial.println("a15");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A15.mp3");
+   delay(500);
+  }
+
+// 16 - A16
+  if (StatusPB_6 == HIGH && StatusPB_4 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a16");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A16.mp3");
+   delay(500);
+  }
+
+// 17 - A17
+  if (StatusPB_5 == HIGH && StatusPB_3 == HIGH && StatusPB_2 == HIGH && StatusPB_1 == HIGH  && StatusPB_6 == HIGH) {
+   Serial.println("a17");
+  // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A17.mp3");
+   delay(500);
+  }
+
+// 18 - A18
+  if (StatusPB_6 == HIGH && StatusPB_2 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a18");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A18.mp3");
+   delay(500);
+  }
+
+// 19- A19
+  if (StatusPB_4 == HIGH && StatusPB_2 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a19");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A19.mp3");
+   delay(500);
+  }
+
+// 20 - A20
+  if (StatusPB_6 == HIGH && StatusPB_3 == HIGH && StatusPB_2 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a20");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A20.mp3");
+   delay(500);
+  }
+
+  // 21 - A21
+  if (StatusPB_4 == HIGH && StatusPB_3 == HIGH && StatusPB_2 == HIGH && StatusPB_1 == HIGH && StatusPB_5  == HIGH) {
+   Serial.println("a21");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A21.mp3");
+   delay(500);
+  }
+
+  // 22 - A22
+  if (StatusPB_3 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a22");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A22.mp3");
+   delay(500);
+  }
+
+  // 23 - A23
+  if (StatusPB_5 == HIGH && StatusPB_4 == HIGH && StatusPB_2 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a23");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A23.mp3");
+   delay(500);
+  }
+
+// 24 - A24
+if (StatusPB_3 == HIGH && StatusPB_2 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a24");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A24.mp3");
+   delay(500);
+}
+
+// 25 - A25
+if (StatusPB_4 == HIGH && StatusPB_3 == HIGH && StatusPB_2 == HIGH && StatusPB_1 == HIGH && StatusPB_6  == HIGH && StatusPB_5 == HIGH) {
+   Serial.println("a25");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A25.mp3");
+   delay(500);
+  }
+
+// 26 - A26
+if (StatusPB_4 == HIGH && StatusPB_3 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a26");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A26.mp3");
+   delay(500);
+  }
+
+//27 - A27
+if (StatusPB_5 == HIGH && StatusPB_4 == HIGH && StatusPB_3 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a27");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A27.mp3");
+   delay(500);
+  }
+
+//28 - A28
+if (StatusPB_5 == HIGH && StatusPB_2 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a28");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A28.mp3");
+   delay(500);
+  }
+
+//29 - A29
+if (StatusPB_6 == HIGH && StatusPB_5 == HIGH && StatusPB_4 == HIGH && StatusPB_2 == HIGH) {
+   Serial.println("a29");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A29.mp3");
+   delay(500);
+}
+
+//30 - A30 Skip
+
+//31 - A31
+if (StatusPB_5 == HIGH && StatusPB_3 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a31");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A31.mp3");
+   delay(500);
+}
+
+//32 - A32
+if (StatusPB_4 == HIGH && StatusPB_2 == HIGH ) {
+   Serial.println("a32");
+   \ // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A32.mp3");
+   delay(500);
+}
+
+//33 - A33
+if (StatusPB_4 == HIGH && StatusPB_3 == HIGH) {
+   Serial.println("a33");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A33.mp3");
+   delay(500);
+}
+
+//34 - A34
+if (StatusPB_5 == HIGH && StatusPB_1 == HIGH) {
+   Serial.println("a34");
+    // The MP3 file is located in disk D.
+  tmrpcm.play(audioPath+"\\A34.mp3");
+   delay(500);
+}
+
+  //end of LOOP Method
+}
